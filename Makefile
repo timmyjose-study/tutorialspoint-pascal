@@ -1,4 +1,5 @@
 PAS := fpc
+PASFLAGS := -g
 
 SRC := $(wildcard *.pas)
 OBJS := $(patsubst %.pas, %.o, $(SRC))
@@ -7,7 +8,7 @@ EXES := $(basename $(OBJS))
 all: $(EXES)
 
 $(EXES): %: %.pas
-	$(PAS) $<
+	$(PAS) $(PASFLAGS) $<
 
 .PHONY: clean
 clean:
